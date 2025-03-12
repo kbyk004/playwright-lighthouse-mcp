@@ -33,8 +33,11 @@ async function launchBrowser() {
     // Launch browser with remote debugging port
     browser = await chromium.launch({
       headless: true,
-      args: ['--remote-debugging-port=9222'],
-      timeout: 30000
+      args: [
+        '--remote-debugging-port=9222',
+        '--ignore-certificate-errors'
+      ],
+      timeout: 30000,
     });
   }
   return browser;
